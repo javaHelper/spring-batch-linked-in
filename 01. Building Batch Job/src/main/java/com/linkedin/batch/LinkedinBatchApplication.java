@@ -27,18 +27,20 @@ public class LinkedinBatchApplication {
 	@Bean
 	public Step packageItemStep() {
 		return this.stepBuilderFactory.get("packageItemStep").tasklet(new Tasklet() {
-			
+
 			@Override
 			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
 				System.out.println("The item has been packaged.");
 				return RepeatStatus.FINISHED;
 			}
-		}).build(); 
+		}).build();
 	}
 	
 	@Bean
 	public Job deliverPackageJob() {
-		return this.jobBuilderFactory.get("deliverPackageJob").start(packageItemStep()).build();
+		return this.jobBuilderFactory.get("deliverPackageJob")
+				.start(packageItemStep())
+				.build();
 	}
 
 
