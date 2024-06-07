@@ -1,0 +1,35 @@
+#
+
+```
+/Library/Java/JavaVirtualMachines/jdk-11.jdk/Contents/Home/bin/java -javaagent:/Applications/IntelliJ IDEA CE.app/Contents/lib/idea_rt.jar=54652:/Applications/IntelliJ IDEA CE.app/Contents/bin -Dfile.encoding=UTF-8 -classpath /Users/prats/Documents/Prateek/spring-batch-linked-in/03. Building Job With Multiple Steps/linkedin-batch-02-04-end/target/classes:/Users/prats/.m2/repository/org/springframework/boot/spring-boot-starter-batch/2.7.1/spring-boot-starter-batch-2.7.1.jar:/Users/prats/.m2/repository/org/springframework/boot/spring-boot-starter/2.7.1/spring-boot-starter-2.7.1.jar:/Users/prats/.m2/repository/org/springframework/boot/spring-boot/2.7.1/spring-boot-2.7.1.jar:/Users/prats/.m2/repository/org/springframework/boot/spring-boot-autoconfigure/2.7.1/spring-boot-autoconfigure-2.7.1.jar:/Users/prats/.m2/repository/org/springframework/boot/spring-boot-starter-logging/2.7.1/spring-boot-starter-logging-2.7.1.jar:/Users/prats/.m2/repository/ch/qos/logback/logback-classic/1.2.11/logback-classic-1.2.11.jar:/Users/prats/.m2/repository/ch/qos/logback/logback-core/1.2.11/logback-core-1.2.11.jar:/Users/prats/.m2/repository/org/apache/logging/log4j/log4j-to-slf4j/2.17.2/log4j-to-slf4j-2.17.2.jar:/Users/prats/.m2/repository/org/apache/logging/log4j/log4j-api/2.17.2/log4j-api-2.17.2.jar:/Users/prats/.m2/repository/org/slf4j/jul-to-slf4j/1.7.36/jul-to-slf4j-1.7.36.jar:/Users/prats/.m2/repository/jakarta/annotation/jakarta.annotation-api/1.3.5/jakarta.annotation-api-1.3.5.jar:/Users/prats/.m2/repository/org/yaml/snakeyaml/1.30/snakeyaml-1.30.jar:/Users/prats/.m2/repository/org/springframework/boot/spring-boot-starter-jdbc/2.7.1/spring-boot-starter-jdbc-2.7.1.jar:/Users/prats/.m2/repository/com/zaxxer/HikariCP/4.0.3/HikariCP-4.0.3.jar:/Users/prats/.m2/repository/org/springframework/batch/spring-batch-core/4.3.6/spring-batch-core-4.3.6.jar:/Users/prats/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.13.3/jackson-databind-2.13.3.jar:/Users/prats/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.13.3/jackson-annotations-2.13.3.jar:/Users/prats/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.13.3/jackson-core-2.13.3.jar:/Users/prats/.m2/repository/io/micrometer/micrometer-core/1.9.1/micrometer-core-1.9.1.jar:/Users/prats/.m2/repository/org/hdrhistogram/HdrHistogram/2.1.12/HdrHistogram-2.1.12.jar:/Users/prats/.m2/repository/org/latencyutils/LatencyUtils/2.0.3/LatencyUtils-2.0.3.jar:/Users/prats/.m2/repository/javax/batch/javax.batch-api/1.0/javax.batch-api-1.0.jar:/Users/prats/.m2/repository/org/codehaus/jettison/jettison/1.2/jettison-1.2.jar:/Users/prats/.m2/repository/org/springframework/batch/spring-batch-infrastructure/4.3.6/spring-batch-infrastructure-4.3.6.jar:/Users/prats/.m2/repository/org/springframework/retry/spring-retry/1.3.3/spring-retry-1.3.3.jar:/Users/prats/.m2/repository/org/springframework/spring-aop/5.3.21/spring-aop-5.3.21.jar:/Users/prats/.m2/repository/org/springframework/spring-beans/5.3.21/spring-beans-5.3.21.jar:/Users/prats/.m2/repository/org/springframework/spring-context/5.3.21/spring-context-5.3.21.jar:/Users/prats/.m2/repository/org/springframework/spring-expression/5.3.21/spring-expression-5.3.21.jar:/Users/prats/.m2/repository/org/springframework/spring-tx/5.3.21/spring-tx-5.3.21.jar:/Users/prats/.m2/repository/org/slf4j/slf4j-api/1.7.36/slf4j-api-1.7.36.jar:/Users/prats/.m2/repository/org/springframework/spring-core/5.3.21/spring-core-5.3.21.jar:/Users/prats/.m2/repository/org/springframework/spring-jcl/5.3.21/spring-jcl-5.3.21.jar:/Users/prats/.m2/repository/org/springframework/spring-jdbc/5.3.21/spring-jdbc-5.3.21.jar com.linkedin.batch.LinkedinBatchApplication
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.1)
+
+2024-06-08 00:11:09.693  INFO 23836 --- [           main] c.l.batch.LinkedinBatchApplication       : Starting LinkedinBatchApplication using Java 11.0.22 on Prateeks-MacBook-Pro.local with PID 23836 (/Users/prats/Documents/Prateek/spring-batch-linked-in/03. Building Job With Multiple Steps/linkedin-batch-02-04-end/target/classes started by prateekashtikar in /Users/prats/Documents/Prateek/spring-batch-linked-in/03. Building Job With Multiple Steps/linkedin-batch-02-04-end)
+2024-06-08 00:11:09.696  INFO 23836 --- [           main] c.l.batch.LinkedinBatchApplication       : No active profile set, falling back to 1 default profile: "default"
+2024-06-08 00:11:10.161  INFO 23836 --- [           main] c.l.batch.LinkedinBatchApplication       : Started LinkedinBatchApplication in 0.71 seconds (JVM running for 0.954)
+2024-06-08 00:11:10.162  INFO 23836 --- [           main] o.s.b.a.b.JobLauncherApplicationRunner   : Running default command line with: [item=Bag, run.date(date)=2021/12/12]
+2024-06-08 00:11:10.163  WARN 23836 --- [           main] o.s.b.c.c.a.DefaultBatchConfigurer       : No datasource was provided...using a Map based JobRepository
+2024-06-08 00:11:10.163  WARN 23836 --- [           main] o.s.b.c.c.a.DefaultBatchConfigurer       : No transaction manager was provided, using a ResourcelessTransactionManager
+2024-06-08 00:11:10.172  INFO 23836 --- [           main] o.s.b.c.l.support.SimpleJobLauncher      : No TaskExecutor has been set, defaulting to synchronous executor.
+2024-06-08 00:11:10.202  INFO 23836 --- [           main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=deliverPackageJob]] launched with the following parameters: [{item=Bag, run.date=1639247400000}]
+2024-06-08 00:11:10.221  INFO 23836 --- [           main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [packageItemStep]
+## The Bag has been packaged on Sun Dec 12 00:00:00 IST 2021.
+2024-06-08 00:11:10.240  INFO 23836 --- [           main] o.s.batch.core.step.AbstractStep         : Step: [packageItemStep] executed in 18ms
+2024-06-08 00:11:10.244  INFO 23836 --- [           main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [driveToAddressStep]
+## Successfully arrived at the address.
+2024-06-08 00:11:10.247  INFO 23836 --- [           main] o.s.batch.core.step.AbstractStep         : Step: [driveToAddressStep] executed in 3ms
+2024-06-08 00:11:10.250  INFO 23836 --- [           main] o.s.batch.core.job.SimpleStepHandler     : Executing step: [givePackageToCustomer]
+## Given the package to the customer.
+2024-06-08 00:11:10.253  INFO 23836 --- [           main] o.s.batch.core.step.AbstractStep         : Step: [givePackageToCustomer] executed in 3ms
+2024-06-08 00:11:10.257  INFO 23836 --- [           main] o.s.b.c.l.support.SimpleJobLauncher      : Job: [SimpleJob: [name=deliverPackageJob]] completed with the following parameters: [{item=Bag, run.date=1639247400000}] and the following status: [COMPLETED] in 41ms
+
+Process finished with exit code 0
+
+```
