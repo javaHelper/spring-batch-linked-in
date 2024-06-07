@@ -12,9 +12,10 @@ import org.springframework.batch.repeat.RepeatStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 
-@SpringBootApplication
+@SpringBootApplication(exclude = {DataSourceAutoConfiguration.class})
 @EnableBatchProcessing
 public class LinkedinBatchApplication {
 	
@@ -32,8 +33,9 @@ public class LinkedinBatchApplication {
 			public RepeatStatus execute(StepContribution contribution, ChunkContext chunkContext) throws Exception {
 				String item = chunkContext.getStepContext().getJobParameters().get("item").toString();
 				String date = chunkContext.getStepContext().getJobParameters().get("run.date").toString();
-				
-				System.out.println(String.format("The %s has been packaged on %s.", item, date));
+
+				System.out.println("---------------------------------------------");
+				System.out.printf("The %s has been packaged on %s.%n", item, date);
 				return RepeatStatus.FINISHED;
 			}
 		}).build(); 
@@ -52,5 +54,4 @@ public class LinkedinBatchApplication {
 		// You can also pass values from command line, for simplicity, putting it here
 		SpringApplication.run(LinkedinBatchApplication.class, "item=Bag","run.date(date)=2020/12/31");
 	}
-
 }
