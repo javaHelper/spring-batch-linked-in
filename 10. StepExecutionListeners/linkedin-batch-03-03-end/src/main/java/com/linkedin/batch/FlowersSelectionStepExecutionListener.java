@@ -1,8 +1,13 @@
 package com.linkedin.batch;
 
 import org.springframework.batch.core.ExitStatus;
+import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.StepExecutionListener;
+
+/**
+ * Listener interface for the lifecycle of a {@link Step}.
+ */
 
 public class FlowersSelectionStepExecutionListener implements StepExecutionListener {
 
