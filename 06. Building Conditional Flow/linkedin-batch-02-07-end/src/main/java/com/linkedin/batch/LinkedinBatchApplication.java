@@ -1,7 +1,6 @@
 package com.linkedin.batch;
 
 import org.springframework.batch.core.Job;
-import org.springframework.batch.core.JobParametersIncrementer;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
@@ -52,7 +51,7 @@ public class LinkedinBatchApplication {
 	@Bean
 	public Step driveToAddressStep() {
 		
-		boolean GOT_LOST = true;
+		boolean GOT_LOST = false;
 		return this.stepBuilderFactory.get("driveToAddressStep").tasklet(new Tasklet() {
 			
 			@Override
@@ -98,7 +97,7 @@ public class LinkedinBatchApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(LinkedinBatchApplication.class, "item=Apple Laptop", "run.date(date)=2021/12/12");
+		SpringApplication.run(LinkedinBatchApplication.class, "item=Apple Laptop", "run.date(date)=2024/12/12");
 	}
 
 }
