@@ -64,7 +64,7 @@ public class LinkedinBatchApplication {
 				String item = chunkContext.getStepContext().getJobParameters().get("item").toString();
 				String date = chunkContext.getStepContext().getJobParameters().get("run.date").toString();
 				
-				System.out.println(String.format("The %s has been packaged on %s.", item, date));
+				System.out.printf("The %s has been packaged on %s.%n", item, date);
 				return RepeatStatus.FINISHED;
 			}
 		}).build(); 
@@ -82,7 +82,7 @@ public class LinkedinBatchApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(LinkedinBatchApplication.class, "item=Apple Laptop", "run.date(date)=2021/12/12");
+		SpringApplication.run(LinkedinBatchApplication.class, "item=Apple Laptop", "run.date(date)=2024/12/12");
 	}
 
 }
