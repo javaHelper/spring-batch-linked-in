@@ -116,7 +116,7 @@ public class LinkedinBatchApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(LinkedinBatchApplication.class, "item=Apple Laptop", "run.date(date)=2021/12/12");
+		SpringApplication.run(LinkedinBatchApplication.class, "item=Apple Laptop", "run.date(date)=2024/12/12");
 	}
 
 }
