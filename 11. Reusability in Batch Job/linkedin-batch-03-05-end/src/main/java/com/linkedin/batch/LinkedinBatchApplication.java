@@ -1,5 +1,7 @@
 package com.linkedin.batch;
 
+import java.time.LocalDateTime;
+
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
 import org.springframework.batch.core.StepContribution;
@@ -45,7 +47,8 @@ public class LinkedinBatchApplication {
 	 */
 	@Bean
 	public Flow deliveryFlow() {
-		return new FlowBuilder<SimpleFlow>("deliveryFlow").start(driveToAddressStep())
+		return new FlowBuilder<SimpleFlow>("deliveryFlow")
+				.start(driveToAddressStep())
 					.on("FAILED").fail()
 				.from(driveToAddressStep())
 					.on("*").to(decider())
@@ -215,7 +218,7 @@ public class LinkedinBatchApplication {
 
 
 	public static void main(String[] args) {
-		SpringApplication.run(LinkedinBatchApplication.class, "item=Apple Laptop", "run.date(date)=2021/12/12");
+		SpringApplication.run(LinkedinBatchApplication.class, "item=Apple Laptop", "run.date(date)=2024/12/12", "time="+LocalDateTime.now());
 	}
 
 }
