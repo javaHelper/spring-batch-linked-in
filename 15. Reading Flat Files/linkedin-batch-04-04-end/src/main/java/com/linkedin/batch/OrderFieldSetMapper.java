@@ -4,6 +4,10 @@ import org.springframework.batch.item.file.mapping.FieldSetMapper;
 import org.springframework.batch.item.file.transform.FieldSet;
 import org.springframework.validation.BindException;
 
+
+/**
+ * Interface that is used to map data obtained from a FieldSet into an object.
+ */
 public class OrderFieldSetMapper implements FieldSetMapper<Order> {
 
 	@Override

@@ -33,8 +33,8 @@ public class LinkedinBatchApplication {
 	public ItemReader<Order> itemReader() {
 		FlatFileItemReader<Order> itemReader = new FlatFileItemReader<Order>();
 		itemReader.setLinesToSkip(1);
-//		itemReader.setResource(new FileSystemResource("/data/shipped_orders.csv"));
-		itemReader.setResource(new ClassPathResource("/data/shipped_orders.csv"));
+		itemReader.setResource(new FileSystemResource("src/main/resources/data/shipped_orders.csv"));
+//		itemReader.setResource(new ClassPathResource("/data/shipped_orders.csv"));
 
 		DelimitedLineTokenizer tokenizer = new DelimitedLineTokenizer();
 		tokenizer.setNames(TOKENS);
