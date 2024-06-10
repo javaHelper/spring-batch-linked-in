@@ -52,6 +52,6 @@ public class LinkedinBatchApplication {
 
 	public static void main(String[] args) {
 		// You can also pass values from command line, for simplicity, putting it here
-		SpringApplication.run(LinkedinBatchApplication.class, "item=Bag","run.date(date)=2020/12/31");
+		SpringApplication.run(LinkedinBatchApplication.class, "item=Bag","run.date(date)=2024/12/31");
 	}
 }
