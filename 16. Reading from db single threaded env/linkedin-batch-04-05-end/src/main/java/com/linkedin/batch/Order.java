@@ -3,8 +3,27 @@ package com.linkedin.batch;
 import java.math.BigDecimal;
 import java.util.Date;
 
-public class Order {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Entity
+@Table(name = "orders")
+@AllArgsConstructor
+@NoArgsConstructor
+@Data
+@Builder
+public class Order {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long orderId;
 
 	private String firstName;
@@ -20,75 +39,4 @@ public class Order {
 	private String itemName;
 
 	private Date shipDate;
-
-	public Long getOrderId() {
-		return orderId;
-	}
-
-	public void setOrderId(Long orderId) {
-		this.orderId = orderId;
-	}
-
-	public String getFirstName() {
-		return firstName;
-	}
-
-	public void setFirstName(String firstName) {
-		this.firstName = firstName;
-	}
-
-	public String getLastName() {
-		return lastName;
-	}
-
-	public void setLastName(String lastName) {
-		this.lastName = lastName;
-	}
-
-	public String getEmail() {
-		return email;
-	}
-
-	public void setEmail(String email) {
-		this.email = email;
-	}
-
-	public BigDecimal getCost() {
-		return cost;
-	}
-
-	public void setCost(BigDecimal cost) {
-		this.cost = cost;
-	}
-
-	public String getItemId() {
-		return itemId;
-	}
-
-	public void setItemId(String itemId) {
-		this.itemId = itemId;
-	}
-
-	public String getItemName() {
-		return itemName;
-	}
-
-	public void setItemName(String itemName) {
-		this.itemName = itemName;
-	}
-
-	public Date getShipDate() {
-		return shipDate;
-	}
-
-	public void setShipDate(Date shipDate) {
-		this.shipDate = shipDate;
-	}
-
-	@Override
-	public String toString() {
-		return "Order [orderId=" + orderId + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", cost=" + cost + ", itemId=" + itemId + ", itemName=" + itemName + ", shipDate=" + shipDate + "]";
-	}
-
 }

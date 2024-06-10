@@ -5,6 +5,12 @@ import java.sql.SQLException;
 
 import org.springframework.jdbc.core.RowMapper;
 
+
+/**
+ * An interface used by JdbcTemplate for mapping rows of a java.sql.ResultSet on a per-row basis. Implementations of this 
+ * interface perform the actual work of mapping each row to a result object but don't need to worry about exception handling. 
+ * SQLExceptions will be caught and handled by the calling JdbcTemplate.
+ */
 public class OrderRowMapper implements RowMapper<Order> {
 
 	@Override
