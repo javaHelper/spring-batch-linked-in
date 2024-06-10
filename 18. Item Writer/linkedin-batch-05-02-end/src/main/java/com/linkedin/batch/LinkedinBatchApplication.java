@@ -1,6 +1,7 @@
 package com.linkedin.batch;
 
-import java.util.List;
+import java.io.File;
+import java.io.IOException;
 
 import javax.sql.DataSource;
 
@@ -9,6 +10,7 @@ import org.springframework.batch.core.Step;
 import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.launch.support.RunIdIncrementer;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.batch.item.database.PagingQueryProvider;
@@ -32,7 +34,7 @@ public class LinkedinBatchApplication {
             "itemName", "shipDate"};
 
     public static String ORDER_SQL = "select order_id, first_name, last_name, email, cost, item_id, item_name, ship_date "
-            + "from SHIPPED_ORDER order by order_id";
+            + "from orders order by order_id";
 
     @Autowired
     public JobBuilderFactory jobBuilderFactory;
@@ -44,11 +46,14 @@ public class LinkedinBatchApplication {
     public DataSource dataSource;
 
     @Bean
-    public ItemWriter<Order> itemWriter() {
+    public ItemWriter<Order> itemWriter() throws IOException {
+    	String orderOutputPath = File.createTempFile("customerOutput", ".out").getAbsolutePath();
+		System.out.println(">> Output Path = "+orderOutputPath);
+    	
         FlatFileItemWriter<Order> itemWriter = new FlatFileItemWriter<Order>();
 
-//        itemWriter.setResource(new FileSystemResource("/data/shipped_orders_output.csv"));
-        itemWriter.setResource(new ClassPathResource("/data/shipped_orders_output.csv"));
+        itemWriter.setResource(new FileSystemResource(orderOutputPath));
+//        itemWriter.setResource(new ClassPathResource("/data/shipped_orders_output.csv"));
 
         DelimitedLineAggregator<Order> aggregator = new DelimitedLineAggregator<Order>();
         aggregator.setDelimiter(",");
@@ -66,7 +71,7 @@ public class LinkedinBatchApplication {
         SqlPagingQueryProviderFactoryBean factory = new SqlPagingQueryProviderFactoryBean();
 
         factory.setSelectClause("select order_id, first_name, last_name, email, cost, item_id, item_name, ship_date");
-        factory.setFromClause("from SHIPPED_ORDER");
+        factory.setFromClause("from orders");
         factory.setSortKey("order_id");
         factory.setDataSource(dataSource);
         return factory.getObject();
@@ -95,7 +100,9 @@ public class LinkedinBatchApplication {
 
     @Bean
     public Job job() throws Exception {
-        return this.jobBuilderFactory.get("job").start(chunkBasedStep()).build();
+        return this.jobBuilderFactory.get("job")
+        		.incrementer(new RunIdIncrementer())
+        		.start(chunkBasedStep()).build();
     }
 
     public static void main(String[] args) {

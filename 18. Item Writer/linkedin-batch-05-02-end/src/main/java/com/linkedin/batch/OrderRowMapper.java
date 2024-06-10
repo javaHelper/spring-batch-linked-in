@@ -18,6 +18,7 @@ public class OrderRowMapper implements RowMapper<Order> {
 		order.setItemId(rs.getString("item_id"));
 		order.setItemName(rs.getString("item_name"));
 		order.setShipDate(rs.getDate("ship_date"));
+		System.out.println("#ORDER:"+order);
 		return order;
 	}
 
