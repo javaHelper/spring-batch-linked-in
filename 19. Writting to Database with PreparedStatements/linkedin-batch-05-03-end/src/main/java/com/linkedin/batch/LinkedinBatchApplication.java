@@ -30,7 +30,7 @@ public class LinkedinBatchApplication {
 			"itemName", "shipDate" };
 	
 	public static String ORDER_SQL = "select order_id, first_name, last_name, email, cost, item_id, item_name, ship_date "
-			+ "from SHIPPED_ORDER order by order_id";
+			+ "from orders order by order_id";
 	
 	public static String INSERT_ORDER_SQL = "insert into "
 			+ "SHIPPED_ORDER_OUTPUT(order_id, first_name, last_name, email, item_id, item_name, cost, ship_date)"
@@ -59,7 +59,7 @@ public class LinkedinBatchApplication {
 		SqlPagingQueryProviderFactoryBean factory = new SqlPagingQueryProviderFactoryBean();
 		
 		factory.setSelectClause("select order_id, first_name, last_name, email, cost, item_id, item_name, ship_date");
-		factory.setFromClause("from SHIPPED_ORDER");
+		factory.setFromClause("from orders");
 		factory.setSortKey("order_id");
 		factory.setDataSource(dataSource);
 		return factory.getObject();
